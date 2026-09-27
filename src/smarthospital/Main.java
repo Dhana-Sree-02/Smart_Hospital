@@ -8,6 +8,7 @@ public class Main {
         PatientRepository patientRepo=new PatientRepository();
         AppointmentRepository appointmentRepo=new AppointmentRepository();
         MedicalRecordRepository recordRepo=new MedicalRecordRepository();
+        smarthospital.util.Ids.initializeCounters(patientRepo.all(), appointmentRepo.all(), recordRepo.all());
         PatientService patientService=new PatientService(patientRepo);
         AppointmentService appointmentService=new AppointmentService(appointmentRepo,patientRepo);
         MedicalSearchService recordService=new MedicalSearchService(recordRepo);

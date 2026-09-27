@@ -1,0 +1,4 @@
+id,patientId,date,doctor,diagnosis,notes
+R3001,P1001,2026-06-10,Dr. Kavya Rao,Type 2 Diabetes,Routine follow-up and report review.
+R3002,P1001,2026-08-14,Dr. Kavya Rao,Diabetes,Follow-up visit recorded in hospital system.
+R3003,P1003,2026-07-02,Dr. Neha Iyer,Hypertension,Blood-pressure monitoring visit.

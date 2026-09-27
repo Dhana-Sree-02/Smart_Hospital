@@ -24,4 +24,7 @@ public class MedicalSearchService {
         for(MedicalRecord x:repo.byPatient(patientId))if(SuffixStructures.containsUsingSuffixArray(x.getDiagnosis()+" "+x.getNotes(),keyword))return true;
         return false;
     }
+    public void addRecord(MedicalRecord record) {
+        repo.save(record);
+    }
 }

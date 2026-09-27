@@ -1,5 +1,4 @@
 package smarthospital.co3;
-import java.util.Arrays;
 /**
 * CO3 - Advanced Dynamic Programming.
 *
@@ -198,5 +197,27 @@ public class AdvancedDP {
             }
         }
         return bestBenefit;
+    }
+    /**
+    * 0/1 Knapsack DP:
+    * Select diagnostic tests within time limit maxTime.
+    * Time complexity: O(n * maxTime)
+    */
+    public static int knapsackDiagnosticTestBenefit(
+    int[] testTime, int[] testBenefit, int maxTime) {
+        int n = testTime.length;
+        int[][] dp = new int[n + 1][maxTime + 1];
+        for (int i = 1; i <= n; i++) {
+            for (int w = 0; w <= maxTime; w++) {
+                if (testTime[i - 1] <= w) {
+                    dp[i][w] = Math.max(
+                    dp[i - 1][w],
+                    dp[i - 1][w - testTime[i - 1]] + testBenefit[i - 1]);
+                } else {
+                    dp[i][w] = dp[i - 1][w];
+                }
+            }
+        }
+        return dp[n][maxTime];
     }
 }

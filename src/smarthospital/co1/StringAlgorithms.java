@@ -245,4 +245,30 @@ public class StringAlgorithms {
         }
         return false;
     }
+    public static boolean containsNaive(String text, String pattern) {
+        if (pattern == null || pattern.isEmpty()) return true;
+        if (text == null || pattern.length() > text.length()) return false;
+        text = text.toLowerCase();
+        pattern = pattern.toLowerCase();
+        for (int start = 0; start <= text.length() - pattern.length(); start++) {
+            int j = 0;
+            while (j < pattern.length() && text.charAt(start + j) == pattern.charAt(j)) {
+                j++;
+            }
+            if (j == pattern.length()) return true;
+        }
+        return false;
+    }
+    public static boolean containsZAlgorithm(String text, String pattern) {
+        if (pattern == null || pattern.isEmpty()) return true;
+        if (text == null || pattern.length() > text.length()) return false;
+        text = text.toLowerCase();
+        pattern = pattern.toLowerCase();
+        String combined = pattern + "$" + text;
+        int[] z = buildZArray(combined);
+        for (int i = pattern.length() + 1; i < combined.length(); i++) {
+            if (z[i] == pattern.length()) return true;
+        }
+        return false;
+    }
 }

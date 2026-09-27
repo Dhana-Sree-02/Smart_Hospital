@@ -175,4 +175,28 @@ public class SuffixStructures {
         for(int start:sa) if(text.regionMatches(true,start,pattern,0,pattern.length())) return true;
         return false;
     }
+    public static boolean containsUsingSuffixArrayBinarySearch(String text, String pattern) {
+        if (pattern == null || pattern.isEmpty()) return true;
+        if (text == null || pattern.length() > text.length()) return false;
+        text = text.toLowerCase();
+        pattern = pattern.toLowerCase();
+        int[] sa = buildSuffixArray(text);
+        int low = 0, high = sa.length - 1;
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            int start = sa[mid];
+            String suffix = text.substring(start, Math.min(text.length(), start + pattern.length()));
+            int cmp = suffix.compareTo(pattern);
+            if (cmp == 0) return true;
+            if (cmp < 0) low = mid + 1;
+            else high = mid - 1;
+        }
+        return false;
+    }
+    public static boolean containsUsingSuffixAutomaton(String text, String pattern) {
+        if (pattern == null || pattern.isEmpty()) return true;
+        if (text == null) return false;
+        SuffixAutomaton automaton = new SuffixAutomaton(text.toLowerCase());
+        return automaton.contains(pattern.toLowerCase());
+    }
 }
