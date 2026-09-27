@@ -17,4 +17,4 @@ Eclipse:
 
 Note:
 - No compiled bin folder is included.
-- Eclipse may create bin automatically when the project is built.
+- Eclipse may create bin automatically when the project is built..
