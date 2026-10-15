@@ -1,0 +1,4 @@
+id,patientId,doctor,department,date,time,status
+A2001,P1001,Dr. Kavya Rao,Endocrinology,2026-09-26,10:00,SCHEDULED
+A2002,P1002,Dr. Vikram Singh,Orthopedics,2026-09-26,11:30,SCHEDULED
+A2003,P1003,Dr. Neha Iyer,Cardiology,2026-09-27,09:30,SCHEDULED
